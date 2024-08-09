@@ -1,7 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { typeDefs } from "./schema";
-import { games, authors, reviews } from "./_db";
+import { typeDefs } from "./schema.js";
+import { games, authors, reviews } from "./_db.js";
 
 // resolvers
 
