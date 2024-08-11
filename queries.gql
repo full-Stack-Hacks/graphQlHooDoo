@@ -43,3 +43,23 @@ query getReviewsFromSingleAuthor($id: ID!) {
     }
   }
 }
+
+# Get game by review id
+query gameByReviewId($id: ID!) {
+  review(id: $id) {
+    rating
+    game {
+      title
+    }
+  }
+}
+
+# get author by review id
+query getAuthorByReviewId($id: ID!) {
+  review(id: $id) {
+    rating
+    author {
+      name
+    }
+  }
+}
