@@ -40,6 +40,15 @@ const resolvers = {
       return reviews.filter((review) => review.author_id === parent.id);
     },
   },
+  Review: {
+    author(parent) {
+      return authors.find((author) => author.id === parent.author_id);
+    },
+
+    game(parent) {
+      return games.find((game) => game.id === parent.game_id);
+    },
+  },
 };
 
 // server setup
