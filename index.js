@@ -20,6 +20,7 @@ const resolvers = {
 };
 
 // this is just some test
+// from new local feature
 
 // server setup
 const server = new ApolloServer({
