@@ -22,6 +22,6 @@ let reviews = [
   { id: "7", rating: 10, content: "lorem ipsum", author_id: "3", game_id: "1" },
 ];
 
-export { games, authors, reviews };
+export default { games, authors, reviews };
 
 // comment added

@@ -63,3 +63,12 @@ query getAuthorByReviewId($id: ID!) {
     }
   }
 }
+
+#mutations
+mutation DeleteMutation($id: ID!) {
+  deleteGame(id: $id) {
+    id
+    title
+    platform
+  }
+}
