@@ -20,3 +20,26 @@ query SingleGameQuery($id: ID!) {
     title
   }
 }
+
+# All reviews for a game
+query getReviewsForSingleGame($id: ID!) {
+  game(id: $id) {
+    title
+    reviews {
+      rating
+      content
+    }
+  }
+}
+
+# All reviews for an author
+
+query getReviewsFromSingleAuthor($id: ID!) {
+  author(id: $id) {
+    name
+    reviews {
+      rating
+      content
+    }
+  }
+}
