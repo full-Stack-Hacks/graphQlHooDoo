@@ -19,6 +19,8 @@ const resolvers = {
   },
 };
 
+// this is just some test
+
 // server setup
 const server = new ApolloServer({
   //typedefs
