@@ -26,6 +26,9 @@ export const typeDefs = `#graphql
         games: [Game]
         authors: [Author]
     }
+    type Mutation {
+        deleteGame(id: ID!): [Game]
+    }
 `;
 
 // types: int, float, string, boolean, ID

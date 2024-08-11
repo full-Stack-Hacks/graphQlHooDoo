@@ -1,52 +1,60 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs } from "./schema.js";
-import { games, authors, reviews } from "./_db.js";
+import db from "./_db.js";
 
 // resolvers
 
 const resolvers = {
   Query: {
     games() {
-      return games;
+      return db.games;
     },
     reviews() {
-      return reviews;
+      return db.reviews;
     },
     authors() {
-      return authors;
+      return db.authors;
     },
     // Auto get 3 args parent (parent in resolver chain), args (arguments), context
     review(_, args) {
       // get single review by id
-      return reviews.find((review) => review.id === args.id);
+      return db.reviews.find((review) => review.id === args.id);
     },
     game(_, args) {
       // get single game by id
-      return games.find((game) => game.id === args.id);
+      return db.games.find((game) => game.id === args.id);
     },
     author(_, args) {
       // get single game by id
-      return authors.find((author) => author.id === args.id);
+      return db.authors.find((author) => author.id === args.id);
     },
   },
   Game: {
     reviews(parent) {
-      return reviews.filter((review) => review.game_id === parent.id);
+      return db.reviews.filter((review) => review.game_id === parent.id);
     },
   },
   Author: {
     reviews(parent) {
-      return reviews.filter((review) => review.author_id === parent.id);
+      return db.reviews.filter((review) => review.author_id === parent.id);
     },
   },
   Review: {
     author(parent) {
-      return authors.find((author) => author.id === parent.author_id);
+      return db.authors.find((author) => author.id === parent.author_id);
     },
 
     game(parent) {
-      return games.find((game) => game.id === parent.game_id);
+      return db.games.find((game) => game.id === parent.game_id);
+    },
+  },
+  Mutation: {
+    deleteGame(_, args) {
+      db.games = db.games.filter((game) => {
+        return game.id !== args.id;
+      });
+      return db.games;
     },
   },
 };
