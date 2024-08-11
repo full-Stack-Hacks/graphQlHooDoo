@@ -28,6 +28,7 @@ const server = new ApolloServer({
   typeDefs,
   //resolvers object - contains resolver functions. Tkane in a request and return
   // data to the client (think schema is a map - resolvers actual resolve shit)
+  resolvers,
 });
 
 const { url } = await startStandaloneServer(server, {
