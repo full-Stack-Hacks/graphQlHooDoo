@@ -30,6 +30,16 @@ const resolvers = {
       return authors.find((author) => author.id === args.id);
     },
   },
+  Game: {
+    reviews(parent) {
+      return reviews.filter((review) => review.game_id === parent.id);
+    },
+  },
+  Author: {
+    reviews(parent) {
+      return reviews.filter((review) => review.author_id === parent.id);
+    },
+  },
 };
 
 // server setup
