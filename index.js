@@ -16,6 +16,19 @@ const resolvers = {
     authors() {
       return authors;
     },
+    // Auto get 3 args parent (parent in resolver chain), args (arguments), context
+    review(_, args) {
+      // get single review by id
+      return reviews.find((review) => review.id === args.id);
+    },
+    game(_, args) {
+      // get single game by id
+      return games.find((game) => game.id === args.id);
+    },
+    author(_, args) {
+      // get single game by id
+      return authors.find((author) => author.id === args.id);
+    },
   },
 };
 
