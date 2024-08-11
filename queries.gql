@@ -1,0 +1,22 @@
+# get single review
+query SingleReviewQuery($id: ID!) {
+  review(id: $id) {
+    rating
+    content
+  }
+}
+
+#Works the same for authors and reviews
+query SingleAuthorQuery($id: ID!) {
+  author(id: $id) {
+    name
+    verified
+  }
+}
+
+query SingleGameQuery($id: ID!) {
+  game(id: $id) {
+    platform
+    title
+  }
+}
